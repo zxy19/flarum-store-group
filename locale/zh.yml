@@ -1,0 +1,6 @@
+xypp-store-group:
+  forum:
+    name: "用户组"
+    fail:
+      not_found: "未找到这个用户组"
+      has_own: "你已经在这个用户组了"

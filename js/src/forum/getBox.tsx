@@ -4,7 +4,7 @@ import app from "flarum/forum/app";
 import Group from "flarum/common/models/Group";
 import Placeholder from "flarum/common/components/Placeholder"
 export function getBox(item: StoreItem, history?: PurchaseHistory) {
-    const grp: Group | undefined = app.store.getById("group", item.provider_data() as string);
+    const grp: Group | undefined = app.store.getById("groups", item.provider_data() as string);
     if (!grp) {
         return <Placeholder text={app.translator.trans("xypp-store-group.forum.fail.not_found")} />
     }

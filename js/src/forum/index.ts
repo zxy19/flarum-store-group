@@ -1,11 +1,14 @@
 import app from 'flarum/forum/app';
 import { addFrontendProviders } from "@xypp-store/forum"
 import Group from 'flarum/common/models/Group';
-import StoreItem from '@xypp-store/common/models/StoreItem';
-import PurchaseHistory from '@xypp-store/common/models/PurchaseHistory';
 import { getBox } from './getBox';
 
 app.initializers.add('xypp/store-group', () => {
+  app.store.find("groups").then(() => {
+    if ((app.current.data as any).routeName === "StorePage") {
+      m.redraw();
+    }
+  })
   addFrontendProviders(
     "group",
     app.translator.trans("xypp-store-group.forum.name") as string,
