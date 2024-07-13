@@ -1,6 +1,6 @@
 import PurchaseHistory from "@xypp-store/common/models/PurchaseHistory";
 import StoreItem from "@xypp-store/common/models/StoreItem";
-import app from "flarum/admin/app";
+import app from "flarum/forum/app";
 import Group from "flarum/common/models/Group";
 import Placeholder from "flarum/common/components/Placeholder"
 export function getBox(item: StoreItem, history?: PurchaseHistory) {
