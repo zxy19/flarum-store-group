@@ -12,11 +12,6 @@
 namespace Xypp\StoreGroup;
 
 use Flarum\Extend;
-use Flarum\Group\Group;
-use Flarum\User\User;
-use Xypp\Store\Context\PurchaseContext;
-use Xypp\Store\PurchaseHistory;
-use Xypp\Store\StoreItem;
 
 return [
     (new Extend\Frontend('forum'))
@@ -24,7 +19,5 @@ return [
         ->css(__DIR__ . '/less/forum.less'),
     new Extend\Locales(__DIR__ . '/locale'),
     (new \Xypp\Store\Extend\StoreItemProvider())
-        ->simple(
-            
-        )
+        ->provide(StoreProvider::class)
 ];
