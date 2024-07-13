@@ -24,7 +24,7 @@
     },
     "extra": {
         "flarum-extension": {
-            "title": "StoreGroup",
+            "title": "Store Group",
             "category": "feature",
             "icon": {
                 "name": "fas fa-users",
