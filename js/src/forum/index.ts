@@ -4,11 +4,7 @@ import Group from 'flarum/common/models/Group';
 import { getBox } from './getBox';
 
 app.initializers.add('xypp/store-group', () => {
-  app.store.find("groups").then(() => {
-    if ((app.current.data as any).routeName === "StorePage") {
-      m.redraw();
-    }
-  })
+  let hasLoaded = false;
   addFrontendProviders(
     "group",
     app.translator.trans("xypp-store-group.forum.name") as string,
@@ -21,6 +17,16 @@ app.initializers.add('xypp/store-group', () => {
           id && (datas[id] = group.namePlural());
         });
     },
-    getBox
-  )
+    function (...args) {
+      if (!hasLoaded) {
+        hasLoaded = true;
+        app.store.find("groups").then(() => {
+          if ((app.current.data as any).routeName === "StorePage") {
+            m.redraw();
+          }
+        })
+      }
+      return getBox(...args)
+    }
+  );
 });
